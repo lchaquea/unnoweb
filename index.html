@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unno - Envía dinero a Latinoamérica</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon - múltiples formatos para compatibilidad con diferentes navegadores -->
+    <link rel="icon" href="assets/logos/unno/Unno-Logo-V1-_1024-x-1024-px_-_1_.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/logos/unno/Unno-Logo-V1-_1024-x-1024-px_-_1_.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/logos/unno/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/logos/unno/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/logos/unno/favicon-16x16.png">
+    
+    <script src="calculator.js" defer></script>
+    <script src="slider.js" defer></script>
+    <script src="phone-selector.js" defer></script>
+</head>
+<body id="top">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="#top">
+                    <img src="assets/logos/unno/unno-logo.svg" alt="Unno">
+                </a>
+            </div>
+            <nav>
+                <a href="#steps-section" class="nav-link">Cómo funciona</a>
+                <a href="#snpl" class="nav-link">Envía ahora, paga después</a>
+                <a href="#unno-card" class="nav-link">Unno Card</a>
+                <a href="https://wa.me/573332332518?text=Hola%20quiero%20enviar%20dinero%20a%20" class="btn-primary" target="_blank">Enviar dinero</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Background Images -->
+    <section class="hero">
+        <div class="background-images"></div>
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h1>Solucionamos la manera de <span class="highlight">enviar dinero</span> <span class="highlight">a tu familia</span></h1>
+                <div class="whatsapp-subtitle">
+                    En segundos por <span class="whatsapp-text">WhatsApp</span>
+                    <img src="assets/icons/whatsapp.svg" alt="WhatsApp" class="whatsapp-icon">
+                </div>
+                <div class="features">
+                    <div class="feature">
+                        <!-- Icono de tarifas económicas: moneda con símbolo de porcentaje -->
+                        <svg class="feature-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="22" stroke="#0052FF" stroke-width="2.5" fill="none"/>
+                            <path d="M24 14V34" stroke="#0052FF" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M30 18C30 21.3137 27.3137 24 24 24C20.6863 24 18 21.3137 18 18C18 14.6863 20.6863 12 24 12C27.3137 12 30 14.6863 30 18Z" stroke="#0052FF" stroke-width="2.5"/>
+                            <path d="M30 30C30 33.3137 27.3137 36 24 36C20.6863 36 18 33.3137 18 30C18 26.6863 20.6863 24 24 24C27.3137 24 30 26.6863 30 30Z" stroke="#0052FF" stroke-width="2.5"/>
+                        </svg>
+                        <h3>Tarifas económicas</h3>
+                        <p>Comisión fija de $2.99 y excelente tasa de cambio.</p>
+                    </div>
+                    <div class="feature">
+                        <!-- Icono de envíos inmediatos: reloj con flecha de velocidad -->
+                        <svg class="feature-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="22" stroke="#0052FF" stroke-width="2.5" fill="none"/>
+                            <path d="M24 16V24L30 28" stroke="#0052FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M36 24H32" stroke="#0052FF" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M16 24H12" stroke="#0052FF" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M24 12V16" stroke="#0052FF" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M24 32V36" stroke="#0052FF" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M34 14L30 18" stroke="#0052FF" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M18 30L14 34" stroke="#0052FF" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                        <h3>Envíos inmediatos</h3>
+                        <p>Tu dinero llega en segundos a cuentas bancarias.</p>
+                    </div>
+                    <div class="feature">
+                        <!-- Icono de sin complicaciones: interfaz simple con check -->
+                        <svg class="feature-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="22" stroke="#0052FF" stroke-width="2.5" fill="none"/>
+                            <path d="M16 24L22 30L32 18" stroke="#0052FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <h3>Sin dificultad</h3>
+                        <p>No necesitas descargar apps ni crear cuentas.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="calculator-card">
+                <h2>Calcula tu envío</h2>
+                <form id="calculator-form">
+                    <div class="form-group">
+                        <label>Destino</label>
+                        <div class="country-select">
+                            <img src="assets/flags/co.svg" alt="País" class="country-flag" id="country-flag">
+                            <select id="country" required>
+                                <option value="AR">Enviar a Argentina</option>
+                                <option value="BO">Enviar a Bolivia</option>
+                                <option value="CL">Enviar a Chile</option>
+                                <option value="CO" selected>Enviar a Colombia</option>
+                                <option value="DO">Enviar a República Dominicana</option>
+                                <option value="MX">Enviar a México</option>
+                                <option value="PE">Enviar a Perú</option>
+                                <option value="VE">Enviar a Venezuela</option>
+                            </select>
+                            <svg class="select-arrow" width="12" height="8" viewBox="0 0 12 8">
+                                <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tu envías</label>
+                        <div class="amount-input-container">
+                            <input type="number" id="amount" min="1" required placeholder="0">
+                            <div class="currency-selector">
+                                <img src="assets/flags/us.svg" alt="USD">
+                                <span>USD</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exchange-info">
+                        <div class="rate-grid">
+                            <div class="rate-top">
+                                <span class="strikethrough">2.99 USD</span>
+                                <span>Primer envío gratis</span>
+                            </div>
+                            <div class="rate-bottom">
+                                <span id="rate">4000 COP</span>
+                                <span class="promo-tag">Promo</span>
+                                <a href="#" class="tipo-cambio">Tasa de cambio</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="beneficiary-receives">
+                        <label>Tu beneficiario recibe</label>
+                        <div class="amount-result">
+                            <span class="value" id="final-amount">0.00</span>
+                            <div class="currency-indicator">
+                                <img src="assets/flags/co.svg" alt="COP">
+                                <span>COP</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="whatsapp-input">
+                        <label>Tu WhatsApp</label>
+                        <div class="phone-input">
+                            <div class="country-code-selector">
+                                <div class="selected-country" id="selected-country">
+                                    <img src="assets/flags/us.svg" alt="US" id="phone-country-flag">
+                                    <span id="phone-country-code">+1</span>
+                                    <svg class="select-arrow" width="10" height="6" viewBox="0 0 10 6">
+                                        <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <div class="country-dropdown" id="country-dropdown">
+                                    <div class="country-option" data-code="+1" data-country="us">
+                                        <img src="assets/flags/us.svg" alt="US">
+                                        <span>Estados Unidos (+1)</span>
+                                    </div>
+                                    <div class="country-option" data-code="+52" data-country="mx">
+                                        <img src="assets/flags/mx.svg" alt="MX">
+                                        <span>México (+52)</span>
+                                    </div>
+                                    <div class="country-option" data-code="+57" data-country="co">
+                                        <img src="assets/flags/co.svg" alt="CO">
+                                        <span>Colombia (+57)</span>
+                                    </div>
+                                    <div class="country-option" data-code="+54" data-country="ar">
+                                        <img src="assets/flags/ar.svg" alt="AR">
+                                        <span>Argentina (+54)</span>
+                                    </div>
+                                    <div class="country-option" data-code="+56" data-country="cl">
+                                        <img src="assets/flags/cl.svg" alt="CL">
+                                        <span>Chile (+56)</span>
+                                    </div>
+                                    <div class="country-option" data-code="+58" data-country="ve">
+                                        <img src="assets/flags/ve.svg" alt="VE">
+                                        <span>Venezuela (+58)</span>
+                                    </div>
+                                    <div class="country-option" data-code="+51" data-country="pe">
+                                        <img src="assets/flags/pe.svg" alt="PE">
+                                        <span>Perú (+51)</span>
+                                    </div>
+                                    <div class="country-option" data-code="+591" data-country="bo">
+                                        <img src="assets/flags/bo.svg" alt="BO">
+                                        <span>Bolivia (+591)</span>
+                                    </div>
+                                    <div class="country-option" data-code="+1" data-country="do">
+                                        <img src="assets/flags/do.svg" alt="DO">
+                                        <span>República Dominicana (+1)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="tel" placeholder="Número de WhatsApp" required>
+                        </div>
+                    </div>
+
+                    <div class="terms-text">
+                        Al continuar aceptas los <a href="#">términos de uso</a> y <a href="#">políticas de privacidad</a> de Unno.
+                    </div>
+
+                    <button type="submit" class="submit-button" onclick="window.open('https://wa.me/573332332518?text=Hola%20quiero%20enviar%20dinero%20a%20', '_blank')">¡Quiero enviar ahora!</button>
+
+                    <div class="instant-delivery">
+                        <svg width="16" height="16" viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="7" stroke="#0052FF" stroke-width="2" fill="none"/>
+                            <path d="M5 8L7 10L11 6" stroke="#0052FF" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>Tu dinero llega en segundos</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Steps Section -->
+    <section id="steps-section" class="steps">
+        <div class="container">
+            <h2>¿Cómo funciona? En tan solo 3 pasos</h2>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <img src="https://images.unsplash.com/photo-1611746872915-64382b5c76da?w=600" 
+                         alt="Persona usando WhatsApp en el teléfono" 
+                         class="step-image">
+                    <div class="step-content">
+                        <h3>Inicia tu envío a través de WhatsApp</h3>
+                        <p>Te atenderemos de inmediato para procesar tu envío</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <img src="https://images.pexels.com/photos/5053740/pexels-photo-5053740.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                         alt="Persona escribiendo un mensaje en su celular" 
+                         class="step-image">
+                    <div class="step-content">
+                        <h3>Responde los datos de envío</h3>
+                        <p>Empieza la conversación con Unno, indica la cantidad a enviar y los datos de destinatario</p>
+                    </div>
+                    <div class="step-footer">
+                        <a href="https://wa.me/573332332518?text=Hola%20quiero%20enviar%20dinero%20a%20" class="chat-link" target="_blank">Enviar dinero</a>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <img src="https://images.pexels.com/photos/6347729/pexels-photo-6347729.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                         alt="Transferencia de dinero completada" 
+                         class="step-image">
+                    <div class="step-content">
+                        <h3>¡Paga y listo! Tu dinero será enviado al instante</h3>
+                        <p>El destinatario recibe el dinero en su moneda local a la cuenta de destino que indicaste</p>
+                    </div>
+                    <div class="step-footer">
+                        <div class="success-badge">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="11" fill="#0052FF"/>
+                                <path d="M8 12L11 15L16 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Transferencia exitosa</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>Lo que dicen nuestros usuarios</h2>
+            <div class="testimonials-slider">
+                <button class="slider-arrow prev">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M15 18l-6-6 6-6" stroke="#666" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+                
+                <div class="testimonials-container">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Felicidades por este servicio tan fácil, rápido y eficiente."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d" alt="Carlos" class="author-image">
+                            <div class="author-info">
+                                <h4>Carlos</h4>
+                                <p>Austin, Texas</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Hablar con Unno es realmente como si hablara con mi familia."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" alt="Manolo" class="author-image">
+                            <div class="author-info">
+                                <h4>Manolo</h4>
+                                <p>Miami, Florida</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Unno es lo mejor que he encontrado para enviar dinero hasta Yucatán."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e" alt="Cristina" class="author-image">
+                            <div class="author-info">
+                                <h4>Cristina</h4>
+                                <p>Los Angeles, California</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonio de Doña Carmen (ahora en cuarta posición) -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Gracias a Unno puedo recibir el dinero que mis hijos me envían desde Estados Unidos sin tener que salir de casa. Es una bendición."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.pexels.com/photos/3768114/pexels-photo-3768114.jpeg" alt="Doña Carmen" class="author-image">
+                            <div class="author-info">
+                                <h4>Doña Carmen</h4>
+                                <p>Medellín, Colombia</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Nuevo testimonio de esposa que recibe remesas -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Mi esposo trabaja en el extranjero y gracias a Unno puedo recibir su apoyo económico para mantener a nuestros hijos y seguir adelante con nuestra familia."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb" alt="Lucía" class="author-image">
+                            <div class="author-info">
+                                <h4>Lucía</h4>
+                                <p>Ciudad de México, México</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Resto de testimonios -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Increíble lo rápido que llega el dinero a mi familia en Colombia. ¡Gracias Unno!"</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" alt="Roberto" class="author-image">
+                            <div class="author-info">
+                                <h4>Roberto</h4>
+                                <p>Chicago, Illinois</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Las comisiones son mucho más bajas que con otros servicios. Definitivamente recomendado."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2" alt="María" class="author-image">
+                            <div class="author-info">
+                                <h4>María</h4>
+                                <p>Houston, Texas</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Nunca había sido tan sencillo enviar dinero a mi familia en Perú. El servicio es excelente."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a" alt="Juan" class="author-image">
+                            <div class="author-info">
+                                <h4>Juan</h4>
+                                <p>New York, NY</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="slider-arrow next">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 18l6-6-6-6" stroke="#666" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="snpl" class="snpl-section">
+        <div class="container">
+            <div class="snpl-content">
+                <h2>¿Sin dinero?</h2>
+                <h3>Envía ahora y paga después</h3>
+                <p>Nuestro servicio <strong>Send Now Pay Later</strong> te permite enviar dinero a tu familia cuando más lo necesitan, incluso si no tienes fondos disponibles en este momento.</p>
+                <div class="snpl-features">
+                    <div class="snpl-feature">
+                        <svg class="snpl-icon" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="18" stroke="#0052FF" stroke-width="2.5" fill="none"/>
+                            <path d="M14 20L18 24L26 16" stroke="#0052FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Sin verificación de crédito</span>
+                    </div>
+                    <div class="snpl-feature">
+                        <svg class="snpl-icon" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="18" stroke="#0052FF" stroke-width="2.5" fill="none"/>
+                            <path d="M20 12V20L26 24" stroke="#0052FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Paga en 14 días</span>
+                    </div>
+                    <div class="snpl-feature">
+                        <svg class="snpl-icon" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="18" stroke="#0052FF" stroke-width="2.5" fill="none"/>
+                            <path d="M14 16H26M14 24H22" stroke="#0052FF" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>Proceso simple y rápido</span>
+                    </div>
+                </div>
+                <a href="snpl-waitlist.html" class="btn-primary">
+                    Únete a la lista de espera
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z" fill="currentColor"/>
+                    </svg>
+                </a>
+                <div class="snpl-coming-soon">
+                    <span class="snpl-badge">Próximamente</span>
+                    <p>Estamos finalizando los detalles para lanzar este servicio. ¡Únete a la lista de espera para ser de los primeros en utilizarlo!</p>
+                </div>
+            </div>
+            <div class="snpl-image">
+                <img src="https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?auto=format&fit=crop&q=80" alt="Send Now Pay Later">
+                <div class="snpl-image-overlay">
+                    <div class="snpl-card">
+                        <div class="snpl-card-header">
+                            <span>Envío a Colombia</span>
+                            <div class="snpl-card-status">Pendiente de pago</div>
+                        </div>
+                        <div class="snpl-card-amount">
+                            <span>$200 USD</span>
+                            <span class="snpl-card-date">Pagar antes: 14/11/2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/573332332518?text=Hola%20quiero%20enviar%20dinero%20a%20" class="whatsapp-button" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="16" height="16">
+            <path fill="white" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        <span>Enviar dinero</span>
+    </a>
+
+    <!-- Unno Card Section -->
+    <section id="unno-card" class="unno-card-section">
+        <div class="container">
+            <div class="unno-card-content">
+                <h2>Unno Card</h2>
+                <h3>Para ti y cada miembro de tu familia</h3>
+                <p>Una tarjeta global que te permite enviar apoyo financiero a tus seres queridos en cualquier parte del mundo, mientras construyes historial crediticio en tu país de origen.</p>
+                
+                <div class="unno-card-features">
+                    <div class="unno-card-feature">
+                        <svg class="unno-card-icon" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="18" stroke="#0052FF" stroke-width="2.5" fill="none"/>
+                            <path d="M14 20L18 24L26 16" stroke="#0052FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Sin cuota de manejo</span>
+                    </div>
+                    <div class="unno-card-feature">
+                        <svg class="unno-card-icon" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="18" stroke="#0052FF" stroke-width="2.5" fill="none"/>
+                            <path d="M14 16H26M14 24H22" stroke="#0052FF" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>Límite pre-aprobado basado en tus ingresos</span>
+                    </div>
+                    <div class="unno-card-feature">
+                        <svg class="unno-card-icon" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="18" stroke="#0052FF" stroke-width="2.5" fill="none"/>
+                            <path d="M20 12V20L26 24" stroke="#0052FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Aprobación en minutos sin SSN o ITIN</span>
+                    </div>
+                    <div class="unno-card-feature">
+                        <svg class="unno-card-icon" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="18" stroke="#0052FF" stroke-width="2.5" fill="none"/>
+                            <path d="M16 16L24 24M24 16L16 24" stroke="#0052FF" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>Sin comisiones por transacción internacional</span>
+                    </div>
+                    <div class="unno-card-feature">
+                        <svg class="unno-card-icon" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="18" stroke="#0052FF" stroke-width="2.5" fill="none"/>
+                            <path d="M14 20H26M20 14V26" stroke="#0052FF" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>Compatible con Apple Pay y Google Pay</span>
+                    </div>
+                    <div class="unno-card-feature">
+                        <svg class="unno-card-icon" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="18" stroke="#0052FF" stroke-width="2.5" fill="none"/>
+                            <path d="M15 22L20 26L25 22M15 18L20 14L25 18" stroke="#0052FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Construye historial crediticio en tu país de origen</span>
+                    </div>
+                </div>
+                
+                <a href="/unno-card-waitlist" class="unno-card-button">
+                    Únete a la lista de espera
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M4 10h12M12 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                
+                <div class="unno-card-coming-soon">
+                    <span class="unno-card-badge">Próximamente</span>
+                    <p>Estamos finalizando los detalles para lanzar la Unno Card. ¡Únete a la lista de espera para ser de los primeros en obtenerla!</p>
+                </div>
+            </div>
+            
+            <div class="unno-card-visual">
+                <div class="unno-card-image">
+                    <!-- Reemplazamos el fondo de planta con un fondo fintech moderno -->
+                    <div class="fintech-background"></div>
+                    <div class="card-overlay">
+                        <div class="credit-card">
+                            <div class="credit-card-background"></div>
+                            <div class="credit-card-chip">
+                                <div class="credit-card-chip-shine"></div>
+                            </div>
+                            <div class="credit-card-logo">
+                                <img src="assets/logos/unno/unno-logo-white.svg" alt="Unno" class="card-logo">
+                            </div>
+                            <div class="credit-card-number"></div>
+                            <div class="credit-card-name">MARIA RODRIGUEZ</div>
+                            <div class="credit-card-expiry">05/28</div>
+                            <div class="credit-card-network">
+                                <!-- Mostrar el logo de VISA -->
+                                <img src="assets/logos/visa.svg" alt="VISA" class="visa-logo">
+                                
+                                <!-- Ocultar el logo de Mastercard -->
+                                <div class="mastercard-logo" style="display: none;">
+                                    <div class="mastercard-logo-overlap"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="partner-logos">
+                        <div class="partner-logo-item">
+                            <img src="assets/logos/visa.svg" alt="Visa" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg'; this.onerror=null;">
+                        </div>
+                        <div class="partner-logo-item">
+                            <img src="assets/logos/mastercard.svg" alt="Mastercard" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg'; this.onerror=null;">
+                        </div>
+                        <div class="partner-logo-item">
+                            <img src="assets/logos/apple-pay.svg" alt="Apple Pay" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_logo.svg'; this.onerror=null;">
+                        </div>
+                        <div class="partner-logo-item">
+                            <img src="assets/logos/google-pay.svg" alt="Google Pay" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg'; this.onerror=null;">
+                        </div>
+                    </div>
+                    
+                    <div class="credit-limit-badge">
+                        <span>Hasta $100K de límite</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>Preguntas Frecuentes</h2>
+            <p class="faq-subtitle">Todo lo que necesitas saber sobre enviar dinero con Unno</p>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Cómo funciona el envío de dinero por WhatsApp?</h3>
+                        <div class="faq-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Enviar dinero con Unno es muy sencillo. Solo necesitas escribirnos por WhatsApp, indicar el país de destino y el monto a enviar. Nuestro equipo te guiará paso a paso para completar la transacción de forma segura y rápida.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Cuáles son las comisiones por envío?</h3>
+                        <div class="faq-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Unno cobra una comisión fija de $2.99 USD por envío, independientemente del monto. Además, ofrecemos una de las mejores tasas de cambio del mercado. Tu primer envío es completamente gratis.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿A qué países puedo enviar dinero?</h3>
+                        <div class="faq-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Actualmente puedes enviar dinero a México, Colombia, Perú, Argentina, Chile, Bolivia, Venezuela y República Dominicana. Estamos trabajando para expandir nuestros servicios a más países de Latinoamérica.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Cuánto tiempo tarda en llegar el dinero?</h3>
+                        <div class="faq-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Las transferencias con Unno son inmediatas. El dinero llega a la cuenta bancaria del beneficiario en cuestión de segundos una vez completada la transacción.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Qué métodos de pago aceptan?</h3>
+                        <div class="faq-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Aceptamos tarjetas de débito y crédito (Visa, Mastercard, American Express), así como transferencias bancarias desde cuentas en Estados Unidos.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Es seguro enviar dinero con Unno?</h3>
+                        <div class="faq-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutamente. Unno utiliza tecnología de encriptación de nivel bancario para proteger tus datos y transacciones. Además, cumplimos con todas las regulaciones financieras y de prevención de lavado de dinero.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección "Habla con nuestro equipo" después de FAQ -->
+    <section class="contact-team">
+        <div class="contact-team-container">
+            <div class="contact-team-content">
+                <p class="contact-team-subtitle">Habla con nuestro equipo</p>
+                <h2 class="contact-team-title">¿Alguna pregunta?</h2>
+                <a href="https://wa.me/573332332518?text=Hola%20tengo%20una%20pregunta%20sobre%20Unno" class="contact-team-button" target="_blank">
+                    Escríbenos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <a href="#top">
+                        <img src="assets/logos/unno/unno-logo-white.svg" alt="Unno">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © 2024 Unno Technologies Inc. Todos los derechos reservados.
+                </div>
+                <div class="footer-legal">
+                    <p>
+                        Unno Technologies es un servicio de envío de dinero internacional. Se pueden encontrar divulgaciones adicionales en la página de 
+                        <a href="/legal" class="footer-link">Legales y Privacidad</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 

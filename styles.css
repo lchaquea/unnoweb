@@ -1,0 +1,2269 @@
+:root {
+    --primary-color: #0052FF;
+    --secondary-color: #FF4D00;
+    --text-color: #333333;
+    --light-gray: #F5F5F5;
+    --white: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles - Sticky */
+.header {
+    background: var(--white);
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+/* Opcional: Reducir el tamaño del header al hacer scroll */
+.header.scrolled {
+    padding: 10px 0;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Hero Section */
+.hero {
+    padding: 50px 0 80px;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(248, 249, 250, 0.7);
+}
+
+.background-images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.image-slider {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300%; /* Ajustado para 9 imágenes en total (6 principales + 3 duplicadas) */
+    height: 100%;
+    animation: slideImages 48s linear infinite; /* Aumentado de 40s a 48s (20% más lento) */
+}
+
+.slider-image {
+    width: calc(100% / 9); /* Ajustado para 9 imágenes en total */
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.6;
+    border-radius: 16px;
+    margin: 0 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideImages {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100% + 100% * 3 / 9)); /* Ajustado para 9 imágenes */
+    }
+}
+
+.hero-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    padding-top: 20px;
+}
+
+/* Calculator Card */
+.calculator-card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-height: 95vh;
+    overflow-y: auto;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.calculator-card h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+/* Country Select Styles */
+.country-select {
+    position: relative;
+    width: 100%;
+}
+
+.country-flag {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.country-select select {
+    width: 100%;
+    padding: 10px;
+    padding-left: 45px;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    font-size: 15px;
+    appearance: none;
+    background: white;
+    cursor: pointer;
+    height: 48px;
+}
+
+.select-arrow {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Amount Input Styles - Updated */
+.amount-input-container, .amount-result {
+    position: relative;
+    width: 100%;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    background: white;
+    padding: 6px 12px;
+    height: 48px;
+}
+
+.amount-input-container input {
+    flex: 1;
+    padding: 8px 0;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    outline: none;
+    width: calc(100% - 80px);
+}
+
+.currency-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 12px;
+    background-color: var(--light-gray);
+    border-radius: 8px;
+    margin-right: 8px;
+    height: auto;
+    min-height: auto;
+    border-left: none;
+}
+
+.currency-selector img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.currency-selector span {
+    font-weight: 500;
+    color: var(--text-color);
+    font-size: 14px;
+}
+
+/* Exchange Rate Info */
+.exchange-info {
+    margin: 8px 0;
+    color: #6B7280;
+    font-size: 13px;
+}
+
+.rate-grid {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 2px;
+}
+
+.rate-top, .rate-bottom {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+    color: #6B7280;
+    font-weight: 600;
+}
+
+.promo-tag {
+    background: #FF4D00;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.tipo-cambio {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-left: 8px;
+}
+
+#rate {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Result Section */
+.beneficiary-receives {
+    margin-top: 20px;
+}
+
+.beneficiary-receives label {
+    display: block;
+    color: var(--text-color);
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.amount-result {
+    padding: 8px 16px; /* Mismo padding que el input */
+}
+
+.amount-result .value {
+    font-size: 24px; /* Ajustar tamaño para que coincida mejor con el input */
+    font-weight: 600;
+    color: var(--text-color);
+    margin-right: 0; /* Eliminar margen derecho */
+    flex: 1; /* Permitir que ocupe el espacio disponible */
+}
+
+.amount-result .currency-indicator {
+    position: static; /* Quitar posición absoluta */
+    transform: none; /* Quitar transformación */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--light-gray);
+    padding: 4px 12px;
+    border-radius: 8px;
+    margin-right: 8px;
+    height: auto;
+}
+
+.amount-result .currency-indicator img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.amount-result .currency-indicator span {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* WhatsApp Input */
+.whatsapp-input {
+    margin-top: 24px;
+}
+
+.whatsapp-input label {
+    color: var(--text-color);
+    font-size: 16px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Estilos para el selector de código de país */
+.phone-input {
+    display: flex;
+    width: 100%;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    overflow: visible;
+    height: 48px;
+}
+
+.country-code-selector {
+    position: relative;
+    z-index: 100;
+    background-color: var(--light-gray);
+    border-right: 1px solid #E5E7EB;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    min-width: 80px;
+    height: 100%;
+}
+
+.selected-country {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 10px;
+    background-color: var(--light-gray);
+    border-radius: 8px 0 0 8px;
+    cursor: pointer;
+    min-width: 70px;
+    user-select: none;
+}
+
+.selected-country img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.selected-country span {
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+.selected-country .select-arrow {
+    display: block;
+    margin-left: 4px;
+}
+
+.country-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 250px;
+    max-height: 300px;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: none;
+    margin-top: 4px;
+}
+
+.country-dropdown.show {
+    display: block;
+}
+
+.country-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.country-option:hover {
+    background-color: #F5F5F5;
+}
+
+.country-option img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.phone-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #E5E7EB;
+    border-left: none;
+    border-radius: 0 8px 8px 0;
+    font-size: 15px;
+    outline: none;
+}
+
+/* Terms and Submit Button */
+.terms-text {
+    font-size: 12px;
+    color: #6B7280;
+    margin-top: 8px;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.terms-text a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Estilo para el botón primario (azul) - Tamaño reducido */
+.btn-primary {
+    background-color: #0052FF;
+    color: white;
+    padding: 10px 18px; /* Reducido de 12px 22px a 10px 18px */
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px; /* Reducido de 15px a 14px */
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 82, 255, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: #0046DB;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 82, 255, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 82, 255, 0.2);
+}
+
+/* Estilo para el botón de envío (azul) */
+.submit-button {
+    background-color: #0052FF;
+    color: white;
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin-top: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 82, 255, 0.2);
+}
+
+.submit-button:hover {
+    background-color: #0046DB;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 82, 255, 0.3);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 82, 255, 0.2);
+}
+
+.instant-delivery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 8px;
+    font-size: 13px;
+    color: #6B7280;
+}
+
+/* WhatsApp Button */
+.whatsapp-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    z-index: 9999;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.5);
+    background-color: #22c55e;
+}
+
+.whatsapp-button svg {
+    width: 16px;
+    height: 16px;
+    fill: white !important;
+}
+
+.whatsapp-button span {
+    font-size: 14px;
+    letter-spacing: 0.2px;
+}
+
+@media (max-width: 768px) {
+    .whatsapp-button {
+        bottom: 20px;
+        right: 20px;
+        padding: 8px 12px;
+    }
+    
+    .whatsapp-button svg {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .whatsapp-button span {
+        font-size: 13px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .calculator-card {
+        margin: 0 auto;
+    }
+    
+    .hero-content {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .features {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .step {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    h1 {
+        font-size: 36px;
+    }
+    
+    .testimonials h2, .partners h2, .steps h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    nav {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+    
+    .nav-link, .btn-primary {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .calculator-card {
+        padding: 24px;
+    }
+    
+    h1 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .whatsapp-button {
+        width: calc(100% - 40px);
+        justify-content: center;
+        left: 20px;
+        right: 20px;
+    }
+    
+    .calculator-card {
+        padding: 20px;
+    }
+    
+    .form-group {
+        margin-bottom: 12px;
+    }
+}
+
+/* Logo */
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.btn-primary:active {
+    background-color: #003bb3;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Hero Content */
+.hero-content h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    margin-top: 0px;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+    position: relative;
+    z-index: 2;
+    color: #333333;
+}
+
+.hero-content h1 .highlight {
+    color: #0052FF; /* Color azul para las palabras resaltadas */
+}
+
+.text-highlight {
+    color: var(--primary-color);
+}
+
+.whatsapp-subtitle {
+    font-size: 20px;
+    margin-top: 1rem;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.whatsapp-text {
+    color: #25D366; /* Color oficial de WhatsApp */
+    font-weight: 600;
+}
+
+.whatsapp-icon {
+    width: 28px;
+    height: 28px;
+    margin-left: 4px;
+    vertical-align: middle;
+}
+
+/* Hacer que las cajas de características tengan el mismo ancho */
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 30px;
+}
+
+.feature-icon {
+    margin-bottom: 16px;
+    width: 64px;
+    height: 64px;
+}
+
+.feature {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 32px 24px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 82, 255, 0.15);
+}
+
+.feature h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text-color);
+}
+
+.feature p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Calculator Styles */
+.exchange-rate {
+    display: flex;
+    justify-content: space-between;
+    margin: 16px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.result {
+    background: var(--light-gray);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 24px 0;
+}
+
+.result h3 {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+#final-amount {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.btn-large {
+    width: 100%;
+    padding: 16px;
+    font-size: 18px;
+}
+
+/* Steps Section */
+.steps {
+    padding: 60px 0;
+    background: var(--white);
+}
+
+.steps h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.step {
+    text-align: center;
+    padding: 30px;
+    background: var(--white);
+    border-radius: 24px;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(0,82,255,0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,82,255,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(0,82,255,0.12);
+}
+
+.step-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin: 20px 0;
+}
+
+.step-number {
+    width: 48px;
+    height: 48px;
+    background: var(--primary-color);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 20px;
+    margin: 0 auto 20px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 12px rgba(0,82,255,0.15);
+}
+
+.step h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: var(--text-color);
+    font-weight: 600;
+    min-height: auto;
+    display: block;
+}
+
+.step p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    min-height: auto;
+    display: block;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-footer {
+    margin-top: auto;
+    padding-top: 16px;
+}
+
+.chat-link, .success-badge {
+    margin-top: 0;
+}
+
+.success-badge {
+    margin-bottom: 0;
+}
+
+/* Estilo para el enlace de chat (cambiado a azul) */
+.chat-link {
+    display: inline-block;
+    background-color: #0052FF; /* Cambiado de naranja a azul */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 82, 255, 0.2); /* Actualizada la sombra */
+}
+
+.chat-link:hover {
+    background-color: #0046DB; /* Color azul más oscuro para hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 82, 255, 0.3);
+}
+
+.chat-link::after {
+    content: "→";
+    margin-left: 8px;
+}
+
+/* Testimonials Section - Mejorado con transiciones más suaves */
+.testimonials {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+    overflow: hidden; /* Asegurar que no haya desbordamiento */
+}
+
+.testimonials h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 36px;
+    color: #333;
+}
+
+.testimonials-slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: visible; /* Permitir que las tarjetas sean visibles fuera del contenedor */
+}
+
+.testimonials-container {
+    display: flex;
+    overflow: visible;
+    scroll-behavior: smooth;
+    padding: 40px 0;
+    gap: 30px;
+    width: 100%;
+    transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+.testimonial-card {
+    min-width: calc(33.333% - 30px);
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    position: relative;
+    transform: scale(0.85);
+    opacity: 0.7;
+    z-index: 1;
+    will-change: transform, opacity;
+    transform: translateZ(0);
+}
+
+.testimonial-card.active {
+    transform: scale(1.2);
+    opacity: 1;
+    box-shadow: 0 12px 30px rgba(0, 82, 255, 0.2);
+    border: 1px solid rgba(0, 82, 255, 0.15);
+    z-index: 3;
+}
+
+.testimonial-card.adjacent {
+    transform: scale(0.9);
+    opacity: 0.8;
+    z-index: 2;
+}
+
+.testimonial-card.distant {
+    transform: scale(0.85);
+    opacity: 0.7;
+    z-index: 1;
+}
+
+.testimonial-text {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 500;
+    min-height: 80px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.author-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+.author-info h4 {
+    font-size: 16px;
+    margin: 0;
+    color: #333;
+}
+
+.author-info p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+.slider-arrow {
+    background: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+.slider-arrow:hover {
+    background: #f5f5f5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.slider-arrow.prev {
+    left: -20px;
+}
+
+.slider-arrow.next {
+    right: -20px;
+}
+
+@media (max-width: 768px) {
+    .testimonial-card {
+        min-width: 85%;
+    }
+    
+    .testimonial-card.active {
+        transform: scale(1.15);
+    }
+    
+    .slider-arrow.prev {
+        left: -10px;
+    }
+    
+    .slider-arrow.next {
+        right: -10px;
+    }
+}
+
+/* Partners Section */
+.partners {
+    padding: 60px 0;
+    background: var(--white);
+}
+
+.partners h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 36px;
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 40px;
+    align-items: center;
+    justify-items: center;
+}
+
+.country-flag,
+.currency-indicator img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.currency-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--light-gray);
+    padding: 4px 8px;
+    border-radius: 8px;
+}
+
+.currency-indicator img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Ocultar las flechas del input numérico */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+}
+
+.success-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #f0f7ff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    margin-top: 8px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.success-badge span {
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.step:nth-child(3) p {
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* Ajustar para dispositivos móviles */
+@media (max-width: 900px) {
+    /* Eliminar los estilos específicos para .features y .feature */
+}
+
+/* Mejorar los estilos del selector de código de país */
+.country-code-selector {
+    position: relative;
+    z-index: 10; /* Asegurar que esté por encima de otros elementos */
+}
+
+.selected-country {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 12px;
+    background-color: var(--light-gray);
+    border-radius: 8px 0 0 8px;
+    cursor: pointer;
+    min-width: 70px;
+    user-select: none; /* Evitar selección de texto */
+}
+
+.country-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 250px;
+    max-height: 300px;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 100;
+    display: none;
+    margin-top: 4px; /* Espacio entre el selector y el dropdown */
+}
+
+.country-dropdown.show {
+    display: block;
+}
+
+.country-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.country-option:hover {
+    background-color: #F5F5F5;
+}
+
+.country-option img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.phone-input {
+    display: flex;
+    width: 100%;
+}
+
+.phone-input input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #E5E7EB;
+    border-left: none;
+    border-radius: 0 8px 8px 0;
+    font-size: 16px;
+    outline: none;
+}
+
+.whatsapp-subtitle {
+    font-size: 20px;
+    margin-top: 1rem;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.whatsapp-text {
+    color: #25D366; /* Color oficial de WhatsApp */
+    font-weight: 600;
+}
+
+.whatsapp-icon {
+    width: 28px;
+    height: 28px;
+    margin-left: 4px;
+    vertical-align: middle;
+}
+
+/* Ajuste responsive */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 36px;
+        margin-bottom: 12px;
+        margin-top: 0px;
+    }
+
+    .whatsapp-subtitle {
+        font-size: 18px;
+        margin-bottom: 30px;
+        justify-content: center;
+    }
+
+    .whatsapp-icon {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* Ajuste responsive para el botón primario */
+@media (max-width: 768px) {
+    .btn-primary {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+}
+
+/* FAQ Section - Estilo moderno y fintech */
+.faq-section {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.faq-section h2 {
+    text-align: center;
+    margin-bottom: 16px;
+    font-size: 36px;
+    color: #333;
+}
+
+.faq-subtitle {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 18px;
+    color: #666;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    margin-bottom: 16px;
+    border-radius: 16px;
+    background-color: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 8px 30px rgba(0, 82, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.faq-question {
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.faq-question h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    padding-right: 40px;
+}
+
+.faq-icon {
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.faq-answer {
+    padding: 0 24px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    padding: 0 24px 24px;
+    max-height: 300px;
+}
+
+.faq-answer p {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .faq-question h3 {
+        font-size: 16px;
+    }
+    
+    .faq-question {
+        padding: 20px;
+    }
+    
+    .faq-icon {
+        right: 20px;
+    }
+    
+    .faq-item.active .faq-answer {
+        padding: 0 20px 20px;
+    }
+}
+
+/* Estilos para la sección SNPL */
+.snpl-section {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+    overflow: hidden;
+}
+
+.snpl-section .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.snpl-content h2 {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.snpl-content h3 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.snpl-content p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+    max-width: 500px;
+    line-height: 1.6;
+}
+
+.snpl-features {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.snpl-feature {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.snpl-feature span {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.snpl-icon {
+    flex-shrink: 0;
+}
+
+.snpl-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 82, 255, 0.2);
+}
+
+.snpl-button:hover {
+    background-color: #0046d9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 82, 255, 0.3);
+}
+
+.snpl-coming-soon {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.snpl-badge {
+    display: inline-block;
+    background-color: rgba(0, 82, 255, 0.1);
+    color: var(--primary-color);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    width: fit-content;
+}
+
+.snpl-coming-soon p {
+    font-size: 16px;
+    margin-bottom: 0;
+    color: #666;
+}
+
+.snpl-image {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    height: 500px;
+}
+
+.snpl-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.snpl-image-overlay {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 80%;
+}
+
+.snpl-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 82, 255, 0.1);
+}
+
+.snpl-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.snpl-card-header span {
+    font-size: 16px;
+    color: #666;
+}
+
+.snpl-card-status {
+    background-color: #FFF4E5;
+    color: #FF9500;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.snpl-card-amount {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.snpl-card-amount span:first-child {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+}
+
+.snpl-card-date {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Responsive para SNPL */
+@media (max-width: 992px) {
+    .snpl-section .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .snpl-content {
+        order: 1;
+    }
+    
+    .snpl-image {
+        order: 2;
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .snpl-content h2 {
+        font-size: 36px;
+    }
+    
+    .snpl-content h3 {
+        font-size: 26px;
+    }
+    
+    .snpl-content p {
+        font-size: 16px;
+    }
+    
+    .snpl-feature span {
+        font-size: 16px;
+    }
+    
+    .snpl-button {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .snpl-image {
+        height: 350px;
+    }
+}
+
+/* Estilos para la sección Unno Card */
+.unno-card-section {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+    overflow: hidden;
+}
+
+.unno-card-section .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.unno-card-content h2 {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.unno-card-content h3 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.unno-card-content p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+    max-width: 500px;
+    line-height: 1.6;
+}
+
+.unno-card-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.unno-card-feature {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.unno-card-feature span {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.unno-card-icon {
+    flex-shrink: 0;
+}
+
+.unno-card-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 82, 255, 0.2);
+}
+
+.unno-card-button:hover {
+    background-color: #0046d9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 82, 255, 0.3);
+}
+
+.unno-card-coming-soon {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.unno-card-badge {
+    display: inline-block;
+    background-color: rgba(0, 82, 255, 0.1);
+    color: var(--primary-color);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    width: fit-content;
+}
+
+.unno-card-coming-soon p {
+    font-size: 16px;
+    margin-bottom: 0;
+    color: #666;
+}
+
+.unno-card-visual {
+    position: relative;
+}
+
+.unno-card-image {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    height: 500px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #f5f7fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Actualizar el fondo detrás de la tarjeta */
+.fintech-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f5f7fa; /* Color plano que combina con el diseño general */
+    z-index: 1;
+}
+
+/* Eliminar los efectos de gradiente y patrones complejos */
+.fintech-background::before,
+.fintech-background::after {
+    display: none;
+}
+
+/* Mejorar la sombra de la tarjeta para que destaque sobre el fondo plano */
+.credit-card {
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+.card-overlay {
+    position: relative;
+    width: 85%;
+    max-width: 400px;
+    z-index: 2;
+    transform: perspective(1000px) rotateY(5deg);
+    transition: transform 0.5s ease;
+}
+
+.card-overlay:hover {
+    transform: perspective(1000px) rotateY(0deg);
+}
+
+.credit-card {
+    background: linear-gradient(135deg, #0052FF, #0033A0);
+    border-radius: 16px;
+    padding: 24px;
+    color: white;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    position: relative;
+    aspect-ratio: 1.6 / 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.credit-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    animation: shimmerEffect 6s infinite;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.credit-card:hover::before {
+    opacity: 1;
+}
+
+@keyframes shimmerEffect {
+    0% {
+        transform: rotate(45deg) translateX(-100%);
+    }
+    100% {
+        transform: rotate(45deg) translateX(100%);
+    }
+}
+
+.credit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+}
+
+.partner-logos {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 2;
+}
+
+.partner-logo-item {
+    background: white;
+    border-radius: 8px;
+    padding: 8px;
+    width: 50px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.partner-logo-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.partner-logo-item:hover {
+    transform: translateY(-2px);
+}
+
+.credit-limit-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.credit-limit-badge:hover {
+    transform: scale(1.05);
+}
+
+/* Chip más realista con detalles de circuitos */
+.credit-card-chip {
+    width: 53.13px;
+    height: 39.9px;
+    background: linear-gradient(145deg, #C0C0C0, #8E8E8E);
+    border-radius: 4px;
+    position: absolute;
+    top: 80px;
+    left: 22.8px;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: block; /* Asegurar que sea visible */
+}
+
+/* Líneas de circuito horizontales */
+.credit-card-chip::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(to bottom, 
+            transparent 20%, rgba(255, 255, 255, 0.2) 20%, 
+            rgba(255, 255, 255, 0.2) 22%, transparent 22%,
+            transparent 40%, rgba(255, 255, 255, 0.2) 40%, 
+            rgba(255, 255, 255, 0.2) 42%, transparent 42%,
+            transparent 60%, rgba(255, 255, 255, 0.2) 60%, 
+            rgba(255, 255, 255, 0.2) 62%, transparent 62%,
+            transparent 80%, rgba(255, 255, 255, 0.2) 80%, 
+            rgba(255, 255, 255, 0.2) 82%, transparent 82%);
+    z-index: 2;
+}
+
+/* Líneas de circuito verticales y contactos */
+.credit-card-chip::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(to right, 
+            transparent 30%, rgba(255, 255, 255, 0.2) 30%, 
+            rgba(255, 255, 255, 0.2) 32%, transparent 32%,
+            transparent 70%, rgba(255, 255, 255, 0.2) 70%, 
+            rgba(255, 255, 255, 0.2) 72%, transparent 72%),
+        radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 5%, transparent 6%),
+        radial-gradient(circle at 75% 25%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 5%, transparent 6%),
+        radial-gradient(circle at 25% 75%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 5%, transparent 6%),
+        radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 5%, transparent 6%);
+    z-index: 3;
+}
+
+/* Efecto de brillo metálico */
+.credit-card-chip-shine {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.4) 0%, 
+        rgba(255, 255, 255, 0) 50%, 
+        rgba(255, 255, 255, 0.1) 100%);
+    z-index: 4;
+    pointer-events: none;
+}
+
+/* Añadir elemento para el brillo */
+.credit-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(255, 255, 255, 0) 50%, 
+        rgba(255, 255, 255, 0.05) 100%);
+    z-index: 5;
+    pointer-events: none;
+    border-radius: 16px;
+}
+
+.credit-card-contactless {
+    display: none;
+}
+
+.credit-card-logo {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    z-index: 1;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #FFFFFF, #E0E0E0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.credit-card-number {
+    display: none;
+}
+
+.credit-card-name {
+    font-size: 16px;
+    margin-bottom: 8px;
+    position: absolute;
+    top: 180px;
+    left: 24px;
+    z-index: 1;
+}
+
+.credit-card-expiry {
+    font-size: 15px;
+    position: absolute;
+    top: 210px;
+    left: 24px;
+    z-index: 1;
+}
+
+.credit-card-network {
+    display: none; /* Ocultar completamente el contenedor del logo */
+}
+
+/* Eliminar el logo de VISA en la tarjeta */
+.visa-logo {
+    display: none;
+}
+
+/* Y el logo de Mastercard también */
+.mastercard-logo {
+    display: none;
+}
+
+/* Eliminar cualquier pseudo-elemento que pueda interferir */
+.credit-card-network::before,
+.credit-card-network::after {
+    display: none;
+}
+
+.white-filter {
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #0052FF;
+    color: white;
+    padding: 40px 0;
+    margin-top: 80px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.footer-logo {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.footer-divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 20px 0;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-copyright {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.footer-legal {
+    font-size: 13px;
+    line-height: 1.5;
+    opacity: 0.7;
+    max-width: 800px;
+}
+
+.footer-link {
+    color: white;
+    text-decoration: underline;
+    transition: opacity 0.2s ease;
+}
+
+.footer-link:hover {
+    opacity: 0.8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+}
+
+.logo img {
+    height: 53px;
+    width: auto;
+    display: block;
+}
+
+.footer-logo img {
+    height: 67px;
+    width: auto;
+    display: block;
+}
+
+.credit-card-logo {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    z-index: 1;
+}
+
+.card-logo {
+    height: 43.05px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+}
+
+/* Ajustes para logos de socios de pago */
+.partner-logo-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.visa-logo {
+    width: 70px;
+    height: auto;
+    filter: brightness(0) invert(1);
+    opacity: 1;
+}
+
+.white-filter {
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+}
+
+/* Efecto metalizado para el nombre y fecha */
+.credit-card-name, .credit-card-expiry {
+    background: linear-gradient(135deg, #FFFFFF 0%, #A0A0A0 50%, #FFFFFF 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.credit-card-name {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.credit-card-expiry {
+    font-size: 15px;
+}
+
+/* Restaurar la textura de fondo de la tarjeta */
+.credit-card-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 20%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 50%),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 2px, transparent 2px, transparent 4px);
+    z-index: 0;
+    border-radius: 16px;
+}
+
+/* Añadir scroll-margin-top y scroll-behavior para mejorar la navegación */
+html {
+  scroll-behavior: smooth; /* Hacer que el desplazamiento sea suave */
+}
+
+#steps-section {
+  scroll-margin-top: 45px; /* Ajustar el espacio para la posición exacta deseada */
+}
+
+.logo a, .footer-logo a {
+    text-decoration: none;
+    display: block;
+}
+
+/* Sección "Habla con nuestro equipo" */
+.contact-team {
+    margin: 80px 0;
+    padding: 0 20px;
+}
+
+.contact-team-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-image: url('./images/gradient-background.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    padding: 80px 40px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.contact-team-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 82, 255, 0.7) 0%, rgba(255, 77, 0, 0.7) 100%);
+    z-index: 1;
+}
+
+.contact-team-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-team-subtitle {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    opacity: 0.9;
+}
+
+.contact-team-title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.contact-team-button {
+    display: inline-block;
+    background-color: white;
+    color: #0052FF;
+    font-weight: 600;
+    padding: 16px 32px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.contact-team-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive para la sección de contacto */
+@media (max-width: 768px) {
+    .contact-team-container {
+        padding: 60px 20px;
+    }
+    
+    .contact-team-title {
+        font-size: 36px;
+    }
+} 
