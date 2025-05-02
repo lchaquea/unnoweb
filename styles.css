@@ -679,10 +679,32 @@ input, select, button {
 
 @media (max-width: 768px) {
     .header .container {
-        flex-direction: column;
-        gap: 16px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0;
     }
-    
+    .logo {
+        margin-right: auto;
+    }
+    .menu-button {
+        margin-left: auto;
+    }
+
+    /* 2. Hero features: stack vertically */
+    .features {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+        max-width: 100%;
+    }
+
+    /* 3. Steps section: stack vertically */
+    .steps-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px;
+        max-width: 100%;
+    }
+
     nav {
         flex-direction: column;
         width: 100%;
