@@ -4,21 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Revisión de Solicitud - Unno</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/logos/unno/Unno-Logo-V1-_1024-x-1024-px_-_1_.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/logos/unno/Unno-Logo-V1-_1024-x-1024-px_-_1_.ico">
+    <link rel="icon" type="image/svg+xml" href="./assets/logos/unno/unno-logo.svg">
+    
+    <!-- Chrome-specific meta tags -->
+    <meta name="theme-color" content="#0052FF">
+    <meta name="msapplication-TileColor" content="#0052FF">
+    <meta name="application-name" content="Unno">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Unno">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://unno.app/">
+    <meta property="og:title" content="Unno - Envía dinero a tus seres queridos">
+    <meta property="og:description" content="Envía dinero a tus seres queridos de forma rápida y segura. Sin comisiones ocultas, sin complicaciones.">
+    <meta property="og:image" content="./assets/logos/unno/Unno-Logo-V1-_1024-x-1024-px_-_1_.png">
+    
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon - múltiples formatos para compatibilidad con diferentes navegadores -->
+    <link rel="icon" href="assets/logos/unno/Unno-Logo-V1-_1024-x-1024-px_-_1_.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/logos/unno/Unno-Logo-V1-_1024-x-1024-px_-_1_.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/logos/unno/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/logos/unno/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/logos/unno/favicon-16x16.png">
 </head>
-<body>
+<body id="top">
+    <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="assets/logo.svg" alt="Unno Logo">
+                    <img src="assets/logos/unno/unno-logo.svg" alt="Unno">
                 </a>
             </div>
-            <nav>
-                <a href="index.html" class="nav-link">Inicio</a>
+            <button class="menu-button" aria-label="Toggle menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+            <nav class="mobile-nav">
+                <a href="index.html#steps-section" class="nav-link">Cómo funciona</a>
+                <a href="index.html#snpl" class="nav-link">Envía ahora, paga después</a>
+                <a href="index.html#unno-card" class="nav-link">Unno Card</a>
+                <a href="https://wa.me/573332332518?text=Hola%20quiero%20enviar%20dinero%20a%20" class="btn-primary" target="_blank">Enviar dinero</a>
             </nav>
         </div>
     </header>
@@ -44,52 +81,106 @@
         </div>
     </main>
 
+    <!-- Footer Section -->
     <footer class="footer">
         <div class="container">
             <div class="footer-top">
                 <div class="footer-logo">
                     <a href="index.html">
-                        <img src="assets/logo.svg" alt="Unno Logo">
+                        <img src="assets/logos/unno/unno-logo-white.svg" alt="Unno">
                     </a>
                 </div>
+                <div class="footer-sitemap">
+                    <h3>Mapa del Sitio</h3>
+                    <ul>
+                        <li><a href="index.html" class="footer-link">Inicio</a></li>
+                        <li><a href="snpl-waitlist.html" class="footer-link">Send Now Pay Later</a></li>
+                        <li><a href="unno-card-waitlist.html" class="footer-link">Unno Card</a></li>
+                        <li><a href="formulario-revision-solicitud.html" class="footer-link">Revisión de Solicitud</a></li>
+                    </ul>
+                </div>
             </div>
+            
             <div class="footer-divider"></div>
+            
             <div class="footer-bottom">
-                <p class="footer-copyright">© 2024 Unno. Todos los derechos reservados.</p>
+                <div class="footer-copyright">
+                    © 2024 Unno Solutions Inc. Todos los derechos reservados.
+                </div>
                 <div class="footer-legal">
-                    <a href="legal.html" class="footer-link">Términos y Condiciones</a>
+                    <p>
+                        Unno Solutions es un servicio de envío de dinero internacional. Se pueden encontrar divulgaciones adicionales en la página de 
+                        <a href="legal.html" class="footer-link">Términos y Condiciones</a>.
+                    </p>
                 </div>
             </div>
         </div>
     </footer>
 
+    <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.querySelector('.menu-button');
+            const mobileNav = document.querySelector('.mobile-nav');
+            const body = document.body;
+
+            menuButton.addEventListener('click', function() {
+                mobileNav.classList.toggle('show');
+                body.classList.toggle('menu-open');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!mobileNav.contains(event.target) && !menuButton.contains(event.target)) {
+                    mobileNav.classList.remove('show');
+                    body.classList.remove('menu-open');
+                }
+            });
+
+            // Close menu when clicking a link
+            mobileNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileNav.classList.remove('show');
+                    body.classList.remove('menu-open');
+                });
+            });
+        });
+    </script>
     <style>
-        .form-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .footer-sitemap {
+            margin-top: 20px;
         }
 
-        .airtable-form-container {
-            margin-top: 40px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
+        .footer-sitemap h3 {
+            color: var(--white);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .footer-sitemap ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-sitemap li {
+            margin-bottom: 8px;
+        }
+
+        .footer-sitemap .footer-link {
+            color: var(--white);
+            opacity: 0.8;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-sitemap .footer-link:hover {
+            opacity: 1;
         }
 
         @media (max-width: 768px) {
-            .form-container {
-                padding: 0 16px;
-            }
-            
-            h1 {
-                font-size: 2rem !important;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.75rem !important;
+            .footer-sitemap {
+                margin-top: 30px;
             }
         }
     </style>
