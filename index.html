@@ -708,6 +708,15 @@
                         <img src="assets/logos/unno/unno-logo-white.svg" alt="Unno">
                     </a>
                 </div>
+                <div class="footer-sitemap">
+                    <h3>Mapa del Sitio</h3>
+                    <ul>
+                        <li><a href="index.html" class="footer-link">Inicio</a></li>
+                        <li><a href="snpl-waitlist.html" class="footer-link">Send Now Pay Later</a></li>
+                        <li><a href="unno-card-waitlist" class="footer-link">Unno Card</a></li>
+                        <li><a href="formulario-revision-solicitud.html" class="footer-link">Revisión de Solicitud</a></li>
+                    </ul>
+                </div>
             </div>
             
             <div class="footer-divider"></div>
@@ -754,5 +763,43 @@
             });
         });
     </script>
+    <style>
+        .footer-sitemap {
+            margin-top: 20px;
+        }
+
+        .footer-sitemap h3 {
+            color: var(--white);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .footer-sitemap ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-sitemap li {
+            margin-bottom: 8px;
+        }
+
+        .footer-sitemap .footer-link {
+            color: var(--white);
+            opacity: 0.8;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-sitemap .footer-link:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .footer-sitemap {
+                margin-top: 30px;
+            }
+        }
+    </style>
 </body>
 </html> 
