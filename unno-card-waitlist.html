@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unno Card - Lista de Espera | Unno</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/logos/unno/unno-logo.svg" alt="Unno">
+                </a>
+            </div>
+            <button class="menu-button" aria-label="Toggle menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+            <nav class="mobile-nav">
+                <a href="index.html#steps-section" class="nav-link">Cómo funciona</a>
+                <a href="index.html#snpl" class="nav-link">Envía ahora, paga después</a>
+                <a href="index.html#unno-card" class="nav-link">Unno Card</a>
+                <a href="https://wa.me/573332332518?text=Hola%20quiero%20enviar%20dinero%20a%20" class="btn-primary" target="_blank">Enviar dinero</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" style="margin-top: 100px; margin-bottom: 60px;">
+        <div class="waitlist-container">
+            <h1>Unno Card - Lista de Espera</h1>
+            <p class="waitlist-subtitle">Únete a la lista de espera para ser de los primeros en obtener tu Unno Card</p>
+            
+            <div class="waitlist-form">
+                <form id="waitlist-form">
+                    <div class="form-group">
+                        <label for="email">Tu correo electrónico</label>
+                        <input type="email" id="email" name="email" required placeholder="ejemplo@correo.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Tu número de WhatsApp</label>
+                        <div class="phone-input">
+                            <div class="country-code-selector">
+                                <div class="selected-country" id="selected-country">
+                                    <img src="assets/flags/us.svg" alt="US" id="phone-country-flag">
+                                    <span id="phone-country-code">+1</span>
+                                    <svg class="select-arrow" width="10" height="6" viewBox="0 0 10 6">
+                                        <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <div class="country-dropdown" id="country-dropdown">
+                                    <div class="country-option" data-code="+1" data-country="us">
+                                        <img src="assets/flags/us.svg" alt="US">
+                                        <span>Estados Unidos (+1)</span>
+                                    </div>
+                                    <div class="country-option" data-code="+52" data-country="mx">
+                                        <img src="assets/flags/mx.svg" alt="MX">
+                                        <span>México (+52)</span>
+                                    </div>
+                                    <div class="country-option" data-code="+57" data-country="co">
+                                        <img src="assets/flags/co.svg" alt="CO">
+                                        <span>Colombia (+57)</span>
+                                    </div>
+                                    <div class="country-option" data-code="+54" data-country="ar">
+                                        <img src="assets/flags/ar.svg" alt="AR">
+                                        <span>Argentina (+54)</span>
+                                    </div>
+                                    <div class="country-option" data-code="+56" data-country="cl">
+                                        <img src="assets/flags/cl.svg" alt="CL">
+                                        <span>Chile (+56)</span>
+                                    </div>
+                                    <div class="country-option" data-code="+58" data-country="ve">
+                                        <img src="assets/flags/ve.svg" alt="VE">
+                                        <span>Venezuela (+58)</span>
+                                    </div>
+                                    <div class="country-option" data-code="+51" data-country="pe">
+                                        <img src="assets/flags/pe.svg" alt="PE">
+                                        <span>Perú (+51)</span>
+                                    </div>
+                                    <div class="country-option" data-code="+591" data-country="bo">
+                                        <img src="assets/flags/bo.svg" alt="BO">
+                                        <span>Bolivia (+591)</span>
+                                    </div>
+                                    <div class="country-option" data-code="+1" data-country="do">
+                                        <img src="assets/flags/do.svg" alt="DO">
+                                        <span>República Dominicana (+1)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="tel" id="phone" name="phone" required placeholder="Número de WhatsApp">
+                        </div>
+                    </div>
+                    <div class="terms-text">
+                        Al continuar aceptas los <a href="legal.html">términos de uso</a> y <a href="legal.html">políticas de privacidad</a> de Unno.
+                    </div>
+                    <button type="submit" class="btn-primary">Unirme a la lista de espera</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <a href="index.html">
+                        <img src="assets/logos/unno/unno-logo-white.svg" alt="Unno">
+                    </a>
+                </div>
+                <div class="footer-sitemap">
+                    <h3>Mapa del Sitio</h3>
+                    <ul>
+                        <li><a href="index.html" class="footer-link">Inicio</a></li>
+                        <li><a href="snpl-waitlist.html" class="footer-link">Send Now Pay Later</a></li>
+                        <li><a href="unno-card-waitlist.html" class="footer-link">Unno Card</a></li>
+                        <li><a href="formulario-revision-solicitud.html" class="footer-link">Revisión de Solicitud</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © 2024 Unno Solutions Inc. Todos los derechos reservados.
+                </div>
+                <div class="footer-legal">
+                    <p>
+                        Unno Solutions es un servicio de envío de dinero internacional. Se pueden encontrar divulgaciones adicionales en la página de 
+                        <a href="legal.html" class="footer-link">Términos y Condiciones</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.querySelector('.menu-button');
+            const mobileNav = document.querySelector('.mobile-nav');
+            const body = document.body;
+
+            menuButton.addEventListener('click', function() {
+                mobileNav.classList.toggle('show');
+                body.classList.toggle('menu-open');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!mobileNav.contains(event.target) && !menuButton.contains(event.target)) {
+                    mobileNav.classList.remove('show');
+                    body.classList.remove('menu-open');
+                }
+            });
+
+            // Close menu when clicking a link
+            mobileNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileNav.classList.remove('show');
+                    body.classList.remove('menu-open');
+                });
+            });
+        });
+    </script>
+    <style>
+        .waitlist-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .waitlist-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-bottom: 40px;
+        }
+
+        .waitlist-form {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .terms-text {
+            margin: 20px 0;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        .terms-text a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .terms-text a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-sitemap {
+            margin-top: 20px;
+        }
+
+        .footer-sitemap h3 {
+            color: var(--white);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .footer-sitemap ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-sitemap li {
+            margin-bottom: 8px;
+        }
+
+        .footer-sitemap .footer-link {
+            color: var(--white);
+            opacity: 0.8;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-sitemap .footer-link:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .waitlist-container {
+                padding: 0 16px;
+            }
+            
+            .waitlist-form {
+                padding: 20px;
+            }
+
+            .footer-sitemap {
+                margin-top: 30px;
+            }
+        }
+    </style>
+    <script src="phone-selector.js"></script>
+</body>
+</html> 
